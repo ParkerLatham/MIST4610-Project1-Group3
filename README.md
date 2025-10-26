@@ -2,7 +2,6 @@
 
 #Group Members:
 
-@samwise2403
-
+[samwise2403](https://github.com/samwise2403)
 
 
