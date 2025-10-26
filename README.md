@@ -2,10 +2,10 @@
 
 # Group Members:
 
-[ParkerLatham](https://github.com/ParkerLatham)
-[samwise2403](https://github.com/samwise2403)
-[SamTock](https://github.com/SamTock)
-[Joaquinpastorg](https://github.com/joaquinpastorg)
+Parker Latham: [ParkerLatham](https://github.com/ParkerLatham)
+Sam Franks: [samwise2403](https://github.com/samwise2403)
+Sam Tock: [SamTock](https://github.com/SamTock)
+Joaquin Pastor: [Joaquinpastorg](https://github.com/joaquinpastorg)
 
 # Data Model
 <img width="1246" height="777" alt="image" src="https://github.com/user-attachments/assets/39ec2e4d-5580-4c56-841e-8ecbd60dbb76" />
