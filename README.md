@@ -2,9 +2,12 @@
 
 # Group Members:
 
-Parker Latham: [ParkerLatham](https://github.com/ParkerLatham)
+Parker Latham: [ParkerLatham](https://github.com/ParkerLatham
+
 Sam Franks: [samwise2403](https://github.com/samwise2403)
+
 Sam Tock: [SamTock](https://github.com/SamTock)
+
 Joaquin Pastor: [Joaquinpastorg](https://github.com/joaquinpastorg)
 
 # Data Model
