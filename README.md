@@ -2,6 +2,7 @@
 
 # Group Members:
 
+[ParkerLatham](https://github.com/ParkerLatham)
 [samwise2403](https://github.com/samwise2403)
 [SamTock](https://github.com/SamTock)
 [Joaquinpastorg](https://github.com/joaquinpastorg)
