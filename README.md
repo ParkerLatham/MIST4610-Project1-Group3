@@ -19,3 +19,5 @@
 <img width="819" height="544" alt="image" src="https://github.com/user-attachments/assets/d6e6427a-dcb8-4138-bae6-6b587836b933" />
 
 
+# Data Model
+<img width="1246" height="777" alt="image" src="https://github.com/user-attachments/assets/39ec2e4d-5580-4c56-841e-8ecbd60dbb76" />
