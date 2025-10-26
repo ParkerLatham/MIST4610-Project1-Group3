@@ -2,7 +2,7 @@
 
 # Group Members:
 
-Parker Latham: [ParkerLatham](https://github.com/ParkerLatham
+Parker Latham: [ParkerLatham](https://github.com/ParkerLatham)
 
 Sam Franks: [samwise2403](https://github.com/samwise2403)
 
