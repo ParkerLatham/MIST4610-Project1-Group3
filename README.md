@@ -12,7 +12,9 @@ Sam Franks: [samwise2403](https://github.com/samwise2403)
 
 Sam Tock: [SamTock](https://github.com/SamTock)
 
-Joaquin Pastor: [Joaquinpastorg](https://github.com/joaquinpastorg)
+Joaquin Pastor: [joaquinpastorg](https://github.com/joaquinpastorg)
+
+Jiya Lulla: [jiyalulla-ctrl](https://github.com/jiyalulla-ctrl)
 
 # Data Model
 <img width="1246" height="777" alt="image" src="https://github.com/user-attachments/assets/39ec2e4d-5580-4c56-841e-8ecbd60dbb76" />
