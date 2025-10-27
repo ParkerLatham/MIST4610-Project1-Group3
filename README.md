@@ -35,6 +35,5 @@ Jiya Lulla: [jiyalulla-ctrl](https://github.com/jiyalulla-ctrl)
 
 
 
-# Full Data Base and Query Code
 
 
