@@ -1,6 +1,10 @@
 # NBA-SQL-Project
 
-# Group Members:
+
+
+# Team Name: Group 3
+
+Group Members:
 
 Parker Latham: [ParkerLatham](https://github.com/ParkerLatham)
 
