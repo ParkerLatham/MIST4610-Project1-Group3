@@ -45,4 +45,16 @@ Jiya Lulla: [jiyalulla-ctrl](https://github.com/jiyalulla-ctrl)
 <img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 32 56 PM" src="https://github.com/user-attachments/assets/e92ff1ed-dd75-455c-aaa3-86bc7b438c04" />
 
 
+<img width="1037" height="528" alt="Screenshot 2025-10-26 at 8 34 09 PM" src="https://github.com/user-attachments/assets/a2360063-b0f2-4f3a-b251-561e92cb1202" />
 
+<img width="1037" height="528" alt="Screenshot 2025-10-26 at 8 34 32 PM" src="https://github.com/user-attachments/assets/6e8fed04-3a3a-457a-ad39-b215ee2d2b2c" />
+
+<img width="1037" height="398" alt="Screenshot 2025-10-26 at 8 35 06 PM" src="https://github.com/user-attachments/assets/2e653cde-c772-4da6-9f2b-2de3b905e94d" />
+
+
+<img width="1037" height="467" alt="Screenshot 2025-10-26 at 8 35 42 PM" src="https://github.com/user-attachments/assets/8b6c63ce-bb5c-41e0-85a2-f3086b47c83e" />
+
+<img width="1037" height="467" alt="Screenshot 2025-10-26 at 8 36 08 PM" src="https://github.com/user-attachments/assets/50978f06-1af4-4205-af55-c77c8b526f9e" />
+
+<img width="1037" height="467" alt="Screenshot 2025-10-26 at 8 36 35 PM" src="https://github.com/user-attachments/assets/f17f7978-c30c-4323-99bf-e434de56020a" />
+<img width="1037" height="592" alt="Screenshot 2025-10-26 at 8 38 00 PM" src="https://github.com/user-attachments/assets/ba51ac78-194f-4baa-8de2-e86d390268c2" />
