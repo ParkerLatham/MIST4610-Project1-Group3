@@ -40,13 +40,13 @@ Jiya Lulla: [jiyalulla-ctrl](https://github.com/jiyalulla-ctrl)
 <img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 29 50 PM" src="https://github.com/user-attachments/assets/36620b66-939b-4121-8599-e3610bfed20f" />
 Description: This query retrieves all details from the Game table—such as the game ID, date, home team, away team, and referee—but excludes the venue information. It is designed to provide an overview of scheduled games while focusing only on matchup and officiating details rather than the location.
 
+
 <img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 31 05 PM" src="https://github.com/user-attachments/assets/6e0c61b5-96a8-4732-9918-1e8caf3d8ddb" />
-
-
+Description: This query returns all players whose height exceeds 80 inches (equivalent to 6 feet 8 inches). It helps identify taller athletes, often forwards or centers, and can be used to analyze how player height varies across teams or positions.
 
 
 <img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 32 56 PM" src="https://github.com/user-attachments/assets/e92ff1ed-dd75-455c-aaa3-86bc7b438c04" />
-
+Description: This query selects each team’s ID, name, and division where the conference is listed as "Western." It allows for filtering or grouping teams based on conference affiliation, which is useful for comparing team performance or roster data between conferences.
 
 <img width="1037" height="528" alt="Screenshot 2025-10-26 at 8 34 09 PM" src="https://github.com/user-attachments/assets/a2360063-b0f2-4f3a-b251-561e92cb1202" />
 
