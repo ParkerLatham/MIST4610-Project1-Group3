@@ -38,6 +38,7 @@ Jiya Lulla: [jiyalulla-ctrl](https://github.com/jiyalulla-ctrl)
 # Queries
 
 <img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 29 50 PM" src="https://github.com/user-attachments/assets/36620b66-939b-4121-8599-e3610bfed20f" />
+Description: This query retrieves all details from the Game table—such as the game ID, date, home team, away team, and referee—but excludes the venue information. It is designed to provide an overview of scheduled games while focusing only on matchup and officiating details rather than the location.
 
 <img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 31 05 PM" src="https://github.com/user-attachments/assets/6e0c61b5-96a8-4732-9918-1e8caf3d8ddb" />
 
