@@ -1,5 +1,7 @@
 # NBA-SQL-Project
 
+This is MIST 4610 SQL project representing the relationships between NBA entities.
+There are both simple and complex queries that are relevant from a NBA managerial perspective. 
 
 
 # Team Name: Group 3
