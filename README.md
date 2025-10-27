@@ -37,6 +37,7 @@ Jiya Lulla: [jiyalulla-ctrl](https://github.com/jiyalulla-ctrl)
 
 <img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 29 50 PM" src="https://github.com/user-attachments/assets/36620b66-939b-4121-8599-e3610bfed20f" />
 
+<img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 31 05 PM" src="https://github.com/user-attachments/assets/6e0c61b5-96a8-4732-9918-1e8caf3d8ddb" />
 
 
 
