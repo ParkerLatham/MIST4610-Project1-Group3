@@ -202,3 +202,5 @@ order by avg_home_venue_capacity DESC
 | T021         | Los Angeles Lakers | 19467.0000                   | 4               |
 + ------------ + -------------- + ---------------------------- + --------------- +
 13 rows
+
+[Data Visualizations Project 2.pdf](https://github.com/user-attachments/files/23842451/Data.Visualizations.Project.2.pdf)
