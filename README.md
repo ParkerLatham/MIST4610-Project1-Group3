@@ -39,42 +39,166 @@ Jiya Lulla: [jiyalulla-ctrl](https://github.com/jiyalulla-ctrl)
 
 # Queries
 
-<img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 29 50 PM" src="https://github.com/user-attachments/assets/36620b66-939b-4121-8599-e3610bfed20f" />
-Description: This query retrieves all details from the Game table—such as the game ID, date, home team, away team, and referee—but excludes the venue information. It is designed to provide an overview of scheduled games while focusing only on matchup and officiating details rather than the location.
+### Query 1 - Winning / Even / Losing seasons
+# Explanation: Uses `CASE` on `wins` vs `losses` to label each team’s season as “Winning”, “Even”, or “Losing”, and lists those results for a chosen season.
+# Justification: Gives a simple view of season outcomes across teams, making it easy for executives to talk about performance without diving into detailed stats.
+
+Execute:
+> select id_team, name, wins, losses, team_season_stats.wins / (team_season_stats.wins + team_season_stats.losses) as win_pct,
+    case
+        when team_season_stats.wins > team_season_stats.losses THEN 'Winning'
+        when team_season_stats.wins = team_season_stats.losses THEN 'Even'
+        else 'Losing'
+    end as season_type
+from team
+join team_season_stats on team.id_team = team_season_stats.team_id_team
+join season on team_season_stats.season_id_season = season.id_season
+where (season.start_date) = (
+	select max(start_date)
+    from season
+    join team_season_stats on team_season_stats.season_id_season = season.id_season
+    )
+    having season_type = 'Winning'
+    order by win_pct DESC
+
++ ------------ + --------- + --------- + ----------- + ------------ + ---------------- +
+| id_team      | name      | wins      | losses      | win_pct      | season_type      |
++ ------------ + --------- + --------- + ----------- + ------------ + ---------------- +
+| T017         | Denver Nuggets | 53        | 29          | 0.6463       | Winning          |
+| T009         | Miami Heat | 44        | 38          | 0.5366       | Winning          |
+| T021         | Los Angeles Lakers | 43        | 39          | 0.5244       | Winning          |
++ ------------ + --------- + --------- + ----------- + ------------ + ---------------- +
+3 rows
+
+### Query 2 - Teams above average win % in most recent season
+# Explanation: Finds each team’s wins, losses, and win percentage in the latest season and keeps only the teams whose win percentage is higher than the league-wide average for that season.
+# Justification: Helps management quickly see which teams are actually outperforming the league, so they can study what’s working and identify lagging teams that might need intervention.
+
+Execute:
+> select id_team, name AS team_name, wins, losses,(wins / (wins + losses)) as win_pct
+from team 
+join team_season_stats on id_team = team_id_team
+join season on team_season_stats.season_id_season = season.id_season
+where start_date = (
+	select max(start_date)
+    from season
+    join team_season_stats on team_season_stats.season_id_season = season.id_season
+    )
+having win_pct >= (
+    select avg(wins / (wins + losses))
+    from team_season_stats 
+    join season on team_season_stats.season_id_season = season.id_season
+    where start_date = (
+		select max(start_date)
+    from season
+    join team_season_stats on team_season_stats.season_id_season = season.id_season
+    )
+)
+order by win_pct DESC
+
++ ------------ + -------------- + --------- + ----------- + ------------ +
+| id_team      | team_name      | wins      | losses      | win_pct      |
++ ------------ + -------------- + --------- + ----------- + ------------ +
+| T017         | Denver Nuggets | 53        | 29          | 0.6463       |
++ ------------ + -------------- + --------- + ----------- + ------------ +
+1 rows
+
+### Query 3 - Colleges with most drafted players and above average height
+# Explanation: Counts how many players from each college were drafted between 2015 and 2024 and calculates average player height, keeping only colleges with at least 5 drafted players and above average height.
+# Justification: Useful for scouting and recruiting which colleges are consistently producing many drafted players and whether they tend to produce bigger players, which can influence scouting focus and partnerships.
+
+Execute:
+> SELECT id_college, name, count(*) AS drafted_players, avg(player.height) as player_height
+from college
+join player on player.college_id_college = college.id_college
+join Draft on Draft.id_draft = player.id_draft
+group by id_college,name
+having drafted_players >= 2
+   and player_height >
+       (
+          select avg(height)
+           from player
+           where id_draft IS NOT NULL
+       )
+order by drafted_players DESC, player_height DESC
+
++ --------------- + --------- + -------------------- + ------------------ +
+| id_college      | name      | drafted_players      | player_height      |
++ --------------- + --------- + -------------------- + ------------------ +
+| C000            | None      | 14                   | 81.4286            |
+| C002            | University of Kentucky | 5                    | 80.2000            |
+| C005            | University of Kansas | 3                    | 81.0000            |
+| C021            | University of Florida | 3                    | 79.3333            |
++ --------------- + --------- + -------------------- + ------------------ +
+4 rows
+
+### Query 4 - Venues that host more games than the average arena
+# Explanation - Counts games played at each venue in the latest season and compares that number to the league's avg games per venue.
+# Justification - Identifies heavily used arenas, supporting operational planning, staffing needs, and maintenance budgeting.
+
+Execute:
+> select Venue.venue_id, name, count(*) as games_played
+from Venue
+join Game on Game.venue_id = Venue.venue_id
+join season on Game.season_id_season = season.id_season
+where (season.start_date) = (
+	select max(start_date)
+    from season
+    join Game on Game.season_id_season = season.id_season
+    )    
+group by venue_id,name
+having games_played >=
+(
+		select count(*) / count(distinct Game.venue_id) from Game
+    join season on Game.season_id_season = season.id_season
+    where (season.start_date) = (  
+	select max(start_date)
+    from season
+    join Game on Game.season_id_season = season.id_season
+    )      
+)
+order by games_played DESC
+
++ ------------- + --------- + ----------------- +
+| venue_id      | name      | games_played      |
++ ------------- + --------- + ----------------- +
+| V008          | Ball Arena | 2                 |
+| V006          | Kaseya Center | 2                 |
++ ------------- + --------- + ----------------- +
+2 rows
 
 
-<img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 31 05 PM" src="https://github.com/user-attachments/assets/6e0c61b5-96a8-4732-9918-1e8caf3d8ddb" />
-Description: This query returns all players whose height exceeds 80 inches (equivalent to 6 feet 8 inches). It helps identify taller athletes, often forwards or centers, and can be used to analyze how player height varies across teams or positions.
+### Query 5 - Teams with above average home venue capacity
+# Explanation - Joins teams, venues, and games to compute each team's home venue capacity, then comparees it to the league average
+# Justification - Highlights teams in larger markets with greater revenue potential, informing pricing, marketing, and investment decisions.
 
+Execute:
+> select id_team,team.name as team_name, avg(Venue.max_occupancy) as avg_home_venue_capacity, COUNT(*) as home_games
+from team join Game on Game.home_team_id = team.id_team
+join Venue on Game.venue_id = Venue.venue_id
+group by id_team, team.name
+	having avg_home_venue_capacity >= 
+(
+    select avg(Venue.max_occupancy)
+    from Venue join Game on Game.venue_id = Venue.venue_id
+)
+order by avg_home_venue_capacity DESC
 
-<img width="1037" height="527" alt="Screenshot 2025-10-26 at 8 32 56 PM" src="https://github.com/user-attachments/assets/e92ff1ed-dd75-455c-aaa3-86bc7b438c04" />
-Description: This query selects each team’s ID, name and division where the conference is listed as "Western." It lets us filter or group teams based on conference affiliation, which is useful for comparing team performance or roster data between conferences.
-
-
-<img width="1037" height="528" alt="Screenshot 2025-10-26 at 8 34 09 PM" src="https://github.com/user-attachments/assets/a2360063-b0f2-4f3a-b251-561e92cb1202" />
-Description: This query lists all players along with their positions and orders the output by position and player name. It provides us with an organized view of player distribution across positions, helping to analyze team structure and positional depth within the different teams in the league.
-
-
-<img width="1037" height="528" alt="Screenshot 2025-10-26 at 8 34 32 PM" src="https://github.com/user-attachments/assets/6e8fed04-3a3a-457a-ad39-b215ee2d2b2c" />
-Description: This query calculates the number of players, the average salary and the minimum and maximum salary for each position in the NBA. It combines player and contract data to show how pay levels differ by position, providing us insight into which roles tend to earn more or less on average.
-
-
-<img width="1037" height="398" alt="Screenshot 2025-10-26 at 8 35 06 PM" src="https://github.com/user-attachments/assets/2e653cde-c772-4da6-9f2b-2de3b905e94d" />
-Description: This query identifies every team associated with LeBron James by joining player and team data through the team_has_player table. It demonstrates how a many-to-many relationship can track a player’s history across multiple teams, allowing for analysis of player movement throughout their career.
-
-
-<img width="1037" height="467" alt="Screenshot 2025-10-26 at 8 35 42 PM" src="https://github.com/user-attachments/assets/8b6c63ce-bb5c-41e0-85a2-f3086b47c83e" />
-Description: This query connects several related tables—player, team, coach and draft to show each player’s name, the team they play for, their coach and where they were drafted. It offers a complete snapshot of a player’s background and current affiliation, which is very useful for scouting reports or career analysis.
-
-
-<img width="1037" height="467" alt="Screenshot 2025-10-26 at 8 36 08 PM" src="https://github.com/user-attachments/assets/50978f06-1af4-4205-af55-c77c8b526f9e" />
-Description: This query calculates the average salary of players on each coach’s team and ranks them from highest to lowest. It highlights which coaches manage higher paid rosters and provides insight into the potential relationships that exist between team payroll and coaching assignments.
-
-
-<img width="1037" height="467" alt="Screenshot 2025-10-26 at 8 36 35 PM" src="https://github.com/user-attachments/assets/f17f7978-c30c-4323-99bf-e434de56020a" />
-Description: This query finds the highest paid player for each team by comparing individual salaries to the team’s maximum salary value, then filters results to include only teams located in cities that start with a vowel. It showcases subquery usage and demonstrates how to identify top earners while applying specific filters.
-
-
-<img width="1037" height="592" alt="Screenshot 2025-10-26 at 8 38 00 PM" src="https://github.com/user-attachments/assets/ba51ac78-194f-4baa-8de2-e86d390268c2" />
-Description: This query lists all players who have only played for a single team by using a NOT EXISTS clause to exclude any player with multiple team associations pn their records. It helps identify players with long-term loyalty or one-team careers, which can be useful for retention or legacy analysis.
-
++ ------------ + -------------- + ---------------------------- + --------------- +
+| id_team      | team_name      | avg_home_venue_capacity      | home_games      |
++ ------------ + -------------- + ---------------------------- + --------------- +
+| T005         | Chicago Bulls  | 20917.0000                   | 4               |
+| T001         | Atlanta Hawks  | 20917.0000                   | 1               |
+| T013         | Philadelphia 76ers | 20478.0000                   | 2               |
+| T006         | Cleveland Cavaliers | 19869.2500                   | 4               |
+| T009         | Miami Heat     | 19600.0000                   | 5               |
+| T002         | Boston Celtics | 19580.0000                   | 2               |
+| T014         | Toronto Raptors | 19580.0000                   | 2               |
+| T024         | New Orleans Pelicans | 19520.0000                   | 2               |
+| T022         | Memphis Grizzlies | 19520.0000                   | 1               |
+| T029         | San Antonio Spurs | 19520.0000                   | 2               |
+| T023         | Minnesota Timberwolves | 19520.0000                   | 2               |
+| T017         | Denver Nuggets | 19520.0000                   | 4               |
+| T021         | Los Angeles Lakers | 19467.0000                   | 4               |
++ ------------ + -------------- + ---------------------------- + --------------- +
+13 rows
