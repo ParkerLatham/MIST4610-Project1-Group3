@@ -203,4 +203,29 @@ order by avg_home_venue_capacity DESC
 + ------------ + -------------- + ---------------------------- + --------------- +
 13 rows
 
-[Data Visualizations Project 2.pdf](https://github.com/user-attachments/files/23842451/Data.Visualizations.Project.2.pdf)
+## Data Visualizations
+
+For project 2 we created 3 visualizations, each one using a different software. One was in Python, one in Excel, and one using ChatGPT. These visualizations give a visual for some data interactions. Admittedly, I’m not sure how helpful they are, but to be honest our data doesn’t lend itself well to visualizations in the first place.
+Visualization 1:
+ <img width="656" height="485" alt="Screenshot 2025-11-28 at 11 58 19 AM" src="https://github.com/user-attachments/assets/cb4f2d7c-ed44-434e-8142-333e32fe6161" />
+
+The first visualization was made using Python and is a bar chart. It shows every teams highest wins per season (at least for the seasons we had). It did have a label when I made it in python, but it didn’t save it when I exported it so… Unsurprisingly, the Warriors are first, with a 73 win season (though they did end up losing to the Cavaliers in the finals that year).
+
+
+
+
+Visualization 2:
+<img width="787" height="858" alt="Screenshot 2025-11-30 at 5 14 05 PM" src="https://github.com/user-attachments/assets/ff44d047-431d-4067-8221-e3cc13e01a69" />
+
+ 
+Visualization 2 shows every teams losses per season and was made with excel. Interestingly, the python set automatically picked only the highest winning season per team, and this one showed all seasons for all teams, making the graph a lot bigger. I wasn’t really sure how to change that. On the flip side, it was much easier to sort the data for a bigger curve, which show that the Timberwolves have the worst season for our records, being the 2014 season, which was also the team’s worst season ever and the worst team record in the league that year. 
+
+
+
+
+Visualization 3:
+<img width="1980" height="1180" alt="chatgptplayer" src="https://github.com/user-attachments/assets/1dd68287-a4a3-4680-9735-581397d86abf" />
+
+ 
+Visualization 3 is a box plot showing height by position and was made by ChatGPT. I only had one chance to make it due to the data analysis cap on the free version, but I would say it turned out pretty good. It shows a pretty clear pattern in heights per position, with Centers being by far the tallest and point guards being both the smallest and having the most outliers. 
+
